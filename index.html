@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#9ccfe5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#18323d" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="description"
+      content="A quick game about making smart email choices in legal work."
+    />
+    <title>HIT SEND?</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <div class="background-mail" aria-hidden="true">
+      <span class="postmark postmark-left"></span>
+      <span class="postmark postmark-right"></span>
+      <span class="airmail airmail-top"></span>
+      <span class="airmail airmail-bottom"></span>
+    </div>
+
+    <main class="game-shell" aria-labelledby="game-title">
+      <header class="game-header">
+        <div class="title-lockup">
+          <span class="family-mark" aria-hidden="true">@</span>
+          <h1 id="game-title">HIT <span>SEND?</span></h1>
+        </div>
+
+        <div class="game-meta" aria-label="Game progress">
+          <div class="meta-copy">
+            <span id="progress">1 / 10</span>
+            <span id="score">0 right</span>
+          </div>
+          <div id="progress-marks" class="progress-marks" aria-hidden="true"></div>
+        </div>
+      </header>
+
+      <section id="play-screen" class="play-screen" aria-label="Current email decision">
+        <article id="email-card" class="email-card" tabindex="-1">
+          <div class="email-toolbar" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <strong>DRAFT</strong>
+          </div>
+
+          <dl class="email-fields">
+            <div>
+              <dt>To</dt>
+              <dd id="email-to"></dd>
+            </div>
+            <div>
+              <dt>Subject</dt>
+              <dd id="email-subject"></dd>
+            </div>
+          </dl>
+
+          <div class="email-body">
+            <p id="email-message"></p>
+            <p id="email-detail" class="email-detail"></p>
+          </div>
+
+          <div id="attachment" class="attachment" hidden>
+            <span class="paperclip" aria-hidden="true"></span>
+            <span id="attachment-name"></span>
+          </div>
+
+          <div id="feedback" class="feedback" aria-live="polite" aria-atomic="true" hidden>
+            <strong id="feedback-title"></strong>
+            <p id="feedback-text"></p>
+          </div>
+        </article>
+
+        <div id="answers" class="answers" aria-label="Choose whether to send">
+          <button class="answer-button send-button" type="button" data-answer="send">
+            <span>SEND</span>
+            <kbd aria-hidden="true">S</kbd>
+          </button>
+          <button class="answer-button stop-button" type="button" data-answer="dont-send">
+            <span>DON'T SEND</span>
+            <kbd aria-hidden="true">D</kbd>
+          </button>
+        </div>
+
+        <button id="next-button" class="next-button" type="button" hidden>
+          NEXT EMAIL <span aria-hidden="true">→</span>
+        </button>
+      </section>
+
+      <section id="end-screen" class="end-screen" aria-labelledby="end-title" hidden>
+        <span class="survived-stamp" aria-hidden="true">DELIVERED</span>
+        <p class="end-label">ROUND COMPLETE</p>
+        <h2 id="end-title">Inbox survived.</h2>
+        <p id="final-score" class="final-score">0 / 10 correct</p>
+        <p class="takeaway">
+          In legal work, a few seconds of checking the recipient, attachment, tone, and content
+          can prevent much bigger problems.
+        </p>
+        <button id="play-again-button" class="play-again-button" type="button">
+          PLAY AGAIN <span aria-hidden="true">↻</span>
+        </button>
+      </section>
+
+      <noscript>This game needs JavaScript to shuffle emails and check answers.</noscript>
+    </main>
+  </body>
+</html>
