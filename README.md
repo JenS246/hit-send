@@ -4,10 +4,12 @@ A tiny, fast educational web game about email judgment in legal work. Each round
 
 ## How it works
 
-- Each playthrough selects 4 safe-to-send and 6 do-not-send scenarios, then shuffles all 10.
+- The deck contains 46 scenarios: 23 safe-to-send and 23 do-not-send.
+- Each playthrough selects 5 of each answer and shuffles all 10.
+- A new round avoids every card from the immediately previous round.
 - Players can use the buttons or press `S` and `D`.
 - Feedback explains the practical issue in one or two short sentences.
-- The game covers recipients, attachments, tone, confidentiality, Reply All, forwarding, and emails as possible evidence.
+- The game covers recipients, attachments, tone, confidentiality, Reply All, forwarding, proofreading, subject lines, and emails as possible records.
 - All game state is local to the page. There is no tracking, account, backend, or stored player data.
 
 ## Run locally
@@ -36,7 +38,8 @@ Pushes to `main` publish automatically after Pages is enabled with **GitHub Acti
 
 - `index.html`: accessible game structure
 - `styles.css`: responsive visual design, dark mode, and reduced-motion support
-- `game.js`: scenarios, shuffle logic, scoring, and keyboard controls
+- `cards.js`: editable scenario deck
+- `game.js`: round selection, shuffle logic, scoring, and keyboard controls
 
 ## Content notes
 
